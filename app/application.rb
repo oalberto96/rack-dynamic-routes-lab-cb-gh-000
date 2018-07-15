@@ -5,6 +5,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
+      puts "caca"
     else
       resp.status = 404
     end
