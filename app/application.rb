@@ -11,6 +11,8 @@ class Application
       if result == nil
         result = ""
         resp.status = 400
+      else
+        resp.write = result
     else
       resp.status = 404
       resp.write "Route not found"
