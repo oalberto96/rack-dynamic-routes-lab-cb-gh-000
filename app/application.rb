@@ -11,6 +11,7 @@ class Application
       if result == nil
         result = ""
         resp.status = 400
+      end
       resp.write = result
     else
       resp.status = 404
