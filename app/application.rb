@@ -7,7 +7,7 @@ class Application
 
     if req.path.match(/items/)
       binding.pry
-      item = req.path.split(/items/).last
+      item = req.path.split(/items\//).last
       resp.write search_item(item)
     else
       resp.status = 404
@@ -17,7 +17,6 @@ class Application
   end
 
   def search_item(item_name)
-    binding.pry
     item = @@items.find {|i| i.name = item_name}
     item != nil ? "#{item.price}" : "Item not found"
   end
