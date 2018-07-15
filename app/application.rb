@@ -6,6 +6,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match(/items/)
+      binding.pry
       item = req.path.split(/items/).last
       resp.write search_item(item)
     else
