@@ -16,6 +16,7 @@ class Application
   end
 
   def search_item(item_name)
+    binding.pry
     item = @@items.find {|i| i.name = item_name}
     item != nil ? "#{item.price}" : "Item not found"
   end
