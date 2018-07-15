@@ -15,6 +15,7 @@ class Application
 
   def search_item(item_name)
     item = @@item.find {|i| i.name = item_name}
+    item != nil ? "#{item.price}"
   end
 
 end
