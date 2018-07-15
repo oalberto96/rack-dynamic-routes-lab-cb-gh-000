@@ -9,7 +9,7 @@ class Application
       item = req.path.split(/items\//).last
       result = search_item_and_get_price(item)
       if result == nil
-        result = ""
+        result = "Item not found"
         resp.status = 400
       end
       resp.write result
