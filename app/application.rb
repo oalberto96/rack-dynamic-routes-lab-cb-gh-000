@@ -7,7 +7,10 @@ class Application
 
     if req.path.match(/items/)
       item = req.path.split(/items\//).last
-      resp.write search_item(item)
+      result = search_item_and_get_price(item)
+      if result == nil
+        result = ""
+        resp.status = 400
     else
       resp.status = 404
       resp.write "Route not found"
@@ -15,7 +18,7 @@ class Application
     resp.finish
   end
 
-  def search_item(item_name)
+  def search_item_and_get_price(item_name)
     item = @@items.find {|i| i.name == item_name}
     item != nil ? "#{item.price}" : nil
   end
